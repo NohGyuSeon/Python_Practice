@@ -251,3 +251,20 @@ if n1 <= 0 or n2 <= 0:
 else:
     print("GCD: %d / LCM: %d" % (GCD(n1, n2), LCM(n1, n2)))
 print()
+
+# 더욱 간결한 유클리드 호제법
+array = input().split()
+
+n1 = int(array[0])
+n2 = int(array[1])
+
+def gcdlcm(a, b):
+    c, d = max(a, b), min(a, b)
+    t = 1
+    while t > 0:
+        t = c % d
+        c, d = d, t
+    return [c, int((a*b)/c)]
+
+print(gcdlcm(n1, n2))
+      
